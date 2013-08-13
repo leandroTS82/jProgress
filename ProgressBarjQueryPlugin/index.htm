@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta property="og:title" content="jQuery Plugin Progress Bar" />
+    <meta property="og:url" content="http://progress.lucasaraujo.org/" />
+    <meta property="og:site_name" content="jQuery Plugin Progress Bar - by Lucas Araujo" />
+    <meta property="og:type" content="app" />
+    <title>Teste de Plugin</title>
+    <link rel="icon" type="image/jpg" href="Images/Progress.jpg" />
+    <script src="Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.progress.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#button1').on('click', function () {
+                $('#lbl1').html('');
+                $('#teste1').progress(50, {
+                    onStart: function () { $('#lbl1').append('<br/>Começou'); },
+                    onComplete: function (final) { $('#lbl1').append('<br/>Terminou em ' + final); }
+                });
+            });
+            $('#button2').on('click', function () {
+                $('#teste2').progress(50, { timespan: 5000, percentResult: true });
+            });
+            $('#button3').on('click', function () {
+                $('#teste3').progress(70, { reverse: true });
+            });
+            $('#button4').on('click', function () {
+                $('#teste4').progress(10);
+            });
+            $('#button5').on('click', function () {
+                $('#teste5').progress(50, { reverse: true, percentResult: true });
+            });
+            $('#button6').on('click', function () {
+                $('#teste6').progress(10, { timespan: 5000 });
+            });
+            $('#button7').on('click', function () {
+                $('#teste7').progress(500, { color: 'Green', percentResult: true, timespan: 10000, easing: "linear" });
+            });
+            $('#button8').on('click', function () {
+                $('#teste8').progress(100, { cssClass: 'teste' });
+            });
+            $('#button9').on('click', function () {
+                $('#teste9').progress(1000, { cssClass: 'teste2', percentResult: true, timespan: 10000 });
+            });
+            $('#button10').on('click', function () {
+                $('#teste10').progress(100, {
+                    color: 'Green',
+                    onStart: function () { $('#teste101').progress(50, { percentResult: true, timespan: 10000, color: 'Blue' }); },
+                    onComplete: function () { $('#teste102').progress(70, { timespan: 5000, color: 'Red' }); }
+                });
+            });
+        });
+    </script>
+    <style type="text/css">
+        label {
+            font-family: Verdana;
+        }
+
+        .teste #progressBar {
+            background-color: darkgoldenrod;
+        }
+
+        .teste {
+        }
+
+        .teste2 #progressCount {
+            font-family: 'Monotype Corsiva', 'Apple Chancery', 'ITC Zapf Chancery', 'URW Chancery L', cursive;
+            font-weight: bold;
+        }
+
+        .teste2 #progressBar {
+            background-color: red;
+            border-radius: 15px;
+        }
+
+        .teste2 {
+            background-color: lightgrey;
+            border-radius: 15px;
+            -webkit-box-shadow: #fff 10px 10px 10px inset;
+            box-shadow: inherit;
+        }
+
+        .main {
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <label>
+        $('#teste1').progress(50, {<br />
+        &emsp;onStart: function () { $('#lbl1').append('&lt;br/&gt;Começou'); },<br />
+        &emsp;onComplete: function (final) { $('#lbl1').append('&lt;br/&gt;Terminou em ' + final); }<br />
+        });
+    </label>
+    <label id="lbl1"></label>
+    <br />
+    <input type="button" value="Execute!" id="button1" />
+    <div id="teste1" class="main"></div>
+    <br />
+    <br />
+    <label>$('#teste2').progress(50, { timespan: 5000, percentResult: true });</label>
+    <br />
+    <input type="button" value="Execute!" id="button2" />
+    <div id="teste2" class="main"></div>
+    <br />
+    <br />
+    <label>$('#teste3').progress(70, { reverse:true });</label>
+    <br />
+    <input type="button" value="Execute!" id="button3" />
+    <div id="teste3" class="main"></div>
+    <br />
+    <br />
+    <label>$('#teste4').progress(10);</label><br />
+    <input type="button" value="Execute!" id="button4" />
+    <div id="teste4" class="main"></div>
+    <br />
+    <br />
+    <label>$('#teste5').progress(50, { reverse: true, percentResult: true });</label>
+    <br />
+    <input type="button" value="Execute!" id="button5" />
+    <div id="teste5" class="main"></div>
+    <br />
+    <br />
+    <label>$('#teste6').progress(10, { timespan: 5000 });</label>
+    <br />
+    <input type="button" value="Execute!" id="button6" />
+    <div id="teste6" class="main"></div>
+    <br />
+    <br />
+    <label>$('#teste7').progress(500, { color: 'Green', percentResult: true, timespan: 10000, easing: "linear" });</label>
+    <br />
+    <input type="button" value="Execute!" id="button7" />
+    <div id="teste7" class="main"></div>
+    <br />
+    <br />
+    <label>$('#teste8').progress(100, { cssClass: 'teste' });</label>
+    <br />
+    <input type="button" value="Execute!" id="button8" />
+    <div id="teste8" class="main"></div>
+    <br />
+    <br />
+    <label>$('#teste9').progress(1000, { cssClass: 'teste2',percentResult:true,timespan:10000 });</label>
+    <br />
+    <input type="button" value="Execute!" id="button9" />
+    <div id="teste9" class="main"></div>
+    <br />
+    <br />
+    <label>
+        $('#button10').on('click', function () {<br />
+        &emsp;$('#teste10').progress(100, {<br />
+        &emsp;&emsp;color: 'Green',<br />
+        &emsp;&emsp;onStart: function () { $('#teste101').progress(50, { percentResult: true, timespan: 10000, color: 'Blue' }); },<br />
+        &emsp;&emsp;onComplete: function () { $('#teste102').progress(70, { timespan: 5000, color: 'Red' }); }<br />
+        &emsp;});<br />
+        });
+    </label>
+    <br />
+    <input type="button" value="Execute!" id="button10" />
+    <div id="teste10" class="main"></div>
+    <div id="teste101" class="main"></div>
+    <div id="teste102" class="main"></div>
+</body>
+</html>
