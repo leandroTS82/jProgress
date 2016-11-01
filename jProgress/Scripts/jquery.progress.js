@@ -2,6 +2,8 @@
     $.fn.progress = function (percent, options) {
         // Carrega as propriedades Default, ou as carregadas pelo usuário
         options = $.extend({}, $.fn.progress.defaults, options || {});
+        
+        // bla bla bla
 
         // Executa a função de onStart, caso ela tenha sido definida
         if (typeof (options.onStart) == 'function') {
